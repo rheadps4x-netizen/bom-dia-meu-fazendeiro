@@ -7,10 +7,12 @@ import { Planos } from "@/components/sections/Planos";
 import { CtaFinal } from "@/components/sections/CtaFinal";
 import { Footer } from "@/components/sections/Footer";
 import { MobileStickyCta } from "@/components/sections/MobileStickyCta";
+import { VisitTracker } from "@/components/analytics/VisitTracker";
 
 export default function HomePage() {
   return (
     <>
+      <VisitTracker />
       <Header />
       <main>
         <Hero />
