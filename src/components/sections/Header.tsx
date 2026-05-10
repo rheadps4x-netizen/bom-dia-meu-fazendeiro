@@ -6,6 +6,8 @@ import { Sprout, Menu, X } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
+import { openCaktoCheckout } from "@/lib/cakto";
+import { trackCheckoutClick } from "@/lib/tracking";
 
 const nav = [
   { href: "#beneficios", label: "Benefícios" },
@@ -64,10 +66,14 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <Button
-            href="#planos"
+            type="button"
             size="md"
             variant="primary"
             className="hidden px-4 py-2 text-[13px] sm:inline-flex"
+            onClick={() => {
+              trackCheckoutClick("teste");
+              openCaktoCheckout("teste");
+            }}
           >
             Começar por R$ 5
           </Button>
@@ -99,7 +105,15 @@ export function Header() {
                 {item.label}
               </a>
             ))}
-            <Button href="#planos" size="md" className="mt-2">
+            <Button
+              type="button"
+              size="md"
+              className="mt-2"
+              onClick={() => {
+                trackCheckoutClick("teste");
+                openCaktoCheckout("teste");
+              }}
+            >
               Começar por R$ 5
             </Button>
           </Container>

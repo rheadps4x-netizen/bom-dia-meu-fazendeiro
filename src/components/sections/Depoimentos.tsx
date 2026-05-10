@@ -61,7 +61,7 @@ const depoimentos: Depoimento[] = [
 
 export function Depoimentos() {
   return (
-    <section id="depoimentos" className="relative py-24 sm:py-32">
+    <section id="depoimentos" className="relative py-16 sm:py-32">
       <Container>
         <SectionTitle
           eyebrow="Depoimentos"
@@ -74,7 +74,7 @@ export function Depoimentos() {
           description="Mulheres reais, manhãs reais, vidas que mudaram com uma palavra por dia."
         />
 
-        <Stagger className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Stagger className="mt-10 grid gap-6 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
           {depoimentos.map((d) => (
             <StaggerItem key={d.nome}>
               <DepoimentoCard depoimento={d} />
@@ -82,7 +82,7 @@ export function Depoimentos() {
           ))}
         </Stagger>
 
-        <div className="mt-16 overflow-hidden rounded-3xl bg-gradient-to-br from-cream-100 via-cream-50 to-rose-100/40 p-1 shadow-card ring-1 ring-cream-200">
+        <div className="mt-10 overflow-hidden rounded-3xl bg-gradient-to-br from-cream-100 via-cream-50 to-rose-100/40 p-1 shadow-card ring-1 ring-cream-200 sm:mt-16">
           <div className="flex flex-col items-center justify-center gap-6 rounded-[1.4rem] bg-cream-50/60 p-8 backdrop-blur-sm sm:flex-row sm:gap-12">
             <div className="text-center sm:text-left">
               <p className="font-serif text-6xl leading-none text-terra-600">

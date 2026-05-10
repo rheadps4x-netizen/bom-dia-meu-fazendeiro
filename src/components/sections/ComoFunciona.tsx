@@ -36,7 +36,7 @@ export function ComoFunciona() {
   return (
     <section
       id="como-funciona"
-      className="relative overflow-hidden bg-gradient-to-b from-cream-100/40 via-cream-100/60 to-cream-100/40 py-24 sm:py-32"
+      className="relative overflow-hidden bg-gradient-to-b from-cream-100/40 via-cream-100/60 to-cream-100/40 py-16 sm:py-32"
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-terra-500/20 to-transparent" />
 
@@ -52,7 +52,7 @@ export function ComoFunciona() {
           description="Quatro passos. Em menos de dois minutos, o seu primeiro bom dia já chega amanhã cedo."
         />
 
-        <Stagger className="relative mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <Stagger className="relative mt-10 grid gap-6 sm:mt-16 md:grid-cols-2 lg:grid-cols-4">
           {/* Connecting line on desktop */}
           <div
             aria-hidden

@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 import { Heart, Sunrise, ShieldCheck, Sparkles } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { openCaktoCheckout } from "@/lib/cakto";
+import { trackCheckoutClick } from "@/lib/tracking";
 
 const easeOut = [0.16, 1, 0.3, 1] as const;
 
 export function CtaFinal() {
   return (
-    <section className="relative overflow-hidden py-28 sm:py-36">
+    <section className="relative overflow-hidden py-20 sm:py-36">
       {/* Background gradient */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-terra-700 via-terra-600 to-rose-500" />
@@ -77,17 +79,29 @@ export function CtaFinal() {
           transition={{ duration: 0.7, delay: 0.4, ease: easeOut }}
           className="mt-12 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
         >
-          <Button href="#planos" size="xl" variant="white">
+          <Button
+            type="button"
+            size="xl"
+            variant="white"
+            onClick={() => {
+              trackCheckoutClick("teste");
+              openCaktoCheckout("teste");
+            }}
+          >
             <Sunrise className="h-5 w-5" />
             Quero meu bom dia amanhã
           </Button>
           <Button
-            href="#depoimentos"
+            type="button"
             variant="ghost"
             size="lg"
             className="text-cream-50 hover:bg-cream-50/10 hover:text-cream-50"
+            onClick={() => {
+              trackCheckoutClick("premium");
+              openCaktoCheckout("premium");
+            }}
           >
-            Ler mais depoimentos
+            Quero o Premium
           </Button>
         </motion.div>
 

@@ -6,6 +6,7 @@ import { Depoimentos } from "@/components/sections/Depoimentos";
 import { Planos } from "@/components/sections/Planos";
 import { CtaFinal } from "@/components/sections/CtaFinal";
 import { Footer } from "@/components/sections/Footer";
+import { MobileStickyCta } from "@/components/sections/MobileStickyCta";
 
 export default function HomePage() {
   return (
@@ -20,6 +21,7 @@ export default function HomePage() {
         <CtaFinal />
       </main>
       <Footer />
+      <MobileStickyCta />
     </>
   );
 }

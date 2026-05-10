@@ -115,12 +115,12 @@ export function WhatsAppMockup() {
             <Paperclip className="h-4 w-4 shrink-0" />
             <Plus className="h-4 w-4 shrink-0" />
           </div>
-          <button
-            aria-label="Enviar mensagem"
+          <span
+            aria-hidden="true"
             className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#128C7E] text-white shadow-[0_8px_16px_rgba(7,94,84,0.22)]"
           >
             <Send className="h-4 w-4" />
-          </button>
+          </span>
         </footer>
       </div>
     </div>

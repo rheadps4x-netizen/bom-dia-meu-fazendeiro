@@ -8,7 +8,7 @@ type Variant = "primary" | "secondary" | "ghost" | "white";
 type Size = "md" | "lg" | "xl";
 
 const base =
-  "group relative inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-tight transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-terra-500 focus-visible:ring-offset-cream-50 disabled:opacity-50 disabled:cursor-not-allowed overflow-hidden";
+  "group relative inline-flex cursor-pointer items-center justify-center gap-2 rounded-full font-medium tracking-tight transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-terra-500 focus-visible:ring-offset-cream-50 disabled:cursor-not-allowed disabled:opacity-50 overflow-hidden hover:shadow-[0_24px_48px_-22px_rgba(42,31,24,0.55)]";
 
 const variants: Record<Variant, string> = {
   primary:
@@ -54,9 +54,9 @@ export function Button(props: ButtonAsButton | ButtonAsLink) {
   const classes = cn(base, variants[variant], sizes[size], className);
 
   const motionProps = {
-    whileHover: { y: -3, scale: 1.015 },
-    whileTap: { y: 0, scale: 0.975 },
-    transition: { type: "spring" as const, stiffness: 430, damping: 20 },
+    whileHover: { scale: 1.03 },
+    whileTap: { scale: 0.975 },
+    transition: { duration: 0.2, ease: "easeOut" as const },
   };
 
   const content = (

@@ -68,7 +68,7 @@ const beneficios: Beneficio[] = [
 
 export function Beneficios() {
   return (
-    <section id="beneficios" className="relative py-24 sm:py-32">
+    <section id="beneficios" className="relative py-16 sm:py-32">
       <Container>
         <SectionTitle
           eyebrow="Benefícios"
@@ -81,7 +81,7 @@ export function Beneficios() {
           description="Pensado para a mulher que dá demais — e que merece, todos os dias, receber um pouco de volta."
         />
 
-        <Stagger className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <Stagger className="mt-10 grid gap-5 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
           {beneficios.map((b) => (
             <StaggerItem key={b.title}>
               <BeneficioCard {...b} />

@@ -6,6 +6,8 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { GradientBg } from "@/components/ui/GradientBg";
 import { WhatsAppMockup } from "@/components/ui/WhatsAppMockup";
+import { openCaktoCheckout } from "@/lib/cakto";
+import { trackCheckoutClick } from "@/lib/tracking";
 
 const easeOut = [0.16, 1, 0.3, 1] as const;
 
@@ -19,7 +21,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative isolate overflow-hidden pb-14 pt-8 sm:pt-10 lg:min-h-[680px] lg:pb-14"
+      className="relative isolate overflow-hidden pb-10 pt-6 sm:pt-10 lg:min-h-[680px] lg:pb-14"
     >
       <GradientBg variant="warm" />
       <div
@@ -74,16 +76,28 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.3, ease: easeOut }}
             className="mt-7 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-center lg:justify-start"
           >
-            <Button href="#planos" size="xl" className="w-full sm:w-auto">
+            <Button
+              type="button"
+              size="xl"
+              className="w-full sm:w-auto"
+              onClick={() => {
+                trackCheckoutClick("teste");
+                openCaktoCheckout("teste");
+              }}
+            >
               Quero receber por R$5 🌻
             </Button>
             <Button
-              href="#como-funciona"
+              type="button"
               variant="secondary"
               size="lg"
               className="w-full sm:w-auto"
+              onClick={() => {
+                trackCheckoutClick("premium");
+                openCaktoCheckout("premium");
+              }}
             >
-              Ver como funciona
+              Quero o Premium
               <ArrowRight className="h-4 w-4 shrink-0" strokeWidth={2.2} />
             </Button>
           </motion.div>
@@ -152,7 +166,7 @@ function HeroVisual() {
         className="absolute left-1/2 top-1/2 h-[80%] w-[84%] -translate-x-1/2 -translate-y-1/2 rounded-[3rem] bg-gradient-to-br from-sage-100/80 via-cream-100/80 to-terra-400/25 blur-2xl"
       />
       <motion.div
-        animate={{ y: [0, -8, 0] }}
+        animate={{ y: [0, -8, 0], rotate: [0, -0.5, 0.5, 0] }}
         transition={{ duration: 7, ease: "easeInOut", repeat: Infinity }}
         className="relative h-[475px] max-h-[calc(100vh-150px)] w-[min(276px,88vw)] lg:h-[570px] lg:max-h-[calc(100vh-180px)] lg:w-[331px]"
       >

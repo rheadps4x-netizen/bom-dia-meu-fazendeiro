@@ -15,6 +15,8 @@ import { Container } from "@/components/ui/Container";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { Button } from "@/components/ui/Button";
 import { Stagger, StaggerItem } from "@/components/ui/Motion";
+import { openCaktoCheckout, type CaktoCheckoutKey } from "@/lib/cakto";
+import { trackCheckoutClick } from "@/lib/tracking";
 
 type Plano = {
   id: string;
@@ -27,6 +29,7 @@ type Plano = {
   destaque?: boolean;
   badge?: string;
   iconBadge?: typeof Sparkles;
+  checkout: CaktoCheckoutKey;
 };
 
 const planos: Plano[] = [
@@ -43,6 +46,7 @@ const planos: Plano[] = [
       "Sem cartão para começar",
     ],
     cta: "Começar por R$ 5",
+    checkout: "teste",
   },
   {
     id: "premium",
@@ -61,6 +65,7 @@ const planos: Plano[] = [
     destaque: true,
     badge: "Mais escolhido",
     iconBadge: Sparkles,
+    checkout: "premium",
   },
   {
     id: "personalizado",
@@ -77,6 +82,7 @@ const planos: Plano[] = [
     ],
     cta: "Quero o Personalizado",
     iconBadge: Crown,
+    checkout: "personalizado",
   },
 ];
 
@@ -84,7 +90,7 @@ export function Planos() {
   return (
     <section
       id="planos"
-      className="relative overflow-hidden bg-gradient-to-b from-cream-100/40 to-cream-50 py-24 sm:py-32"
+      className="relative overflow-hidden bg-gradient-to-b from-cream-100/40 to-cream-50 py-16 sm:py-32"
     >
       <Container>
         <SectionTitle
@@ -100,7 +106,7 @@ export function Planos() {
 
         <Stagger
           amount={0.1}
-          className="mt-20 grid items-stretch gap-8 md:grid-cols-3"
+          className="mt-12 grid items-stretch gap-6 md:mt-20 md:grid-cols-3 md:gap-8"
         >
           {planos.map((plano) => (
             <StaggerItem key={plano.id} className="flex">
@@ -111,7 +117,7 @@ export function Planos() {
 
         <Stagger
           amount={0.1}
-          className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-12 grid gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4"
         >
           {garantias.map((g) => (
             <StaggerItem key={g.title}>
@@ -203,7 +209,7 @@ function PlanoCard({ plano }: { plano: Plano }) {
     <div
       className={`relative mt-5 flex w-full flex-col rounded-3xl p-8 ring-1 transition-all duration-300 ${
         destaque
-          ? "bg-gradient-to-br from-ink-900 via-ink-900 to-[#3b2a1f] text-cream-50 ring-ink-900 shadow-glow md:scale-[1.04]"
+          ? "bg-gradient-to-br from-ink-900 via-ink-900 to-[#3b2a1f] text-cream-50 ring-ink-900 shadow-glow hover:-translate-y-2 hover:shadow-[0_32px_80px_-34px_rgba(122,62,44,0.95)] md:scale-[1.04]"
           : "bg-white/80 text-ink-900 ring-cream-200 shadow-card backdrop-blur-sm hover:-translate-y-1.5 hover:bg-white hover:shadow-soft"
       }`}
     >
@@ -284,10 +290,14 @@ function PlanoCard({ plano }: { plano: Plano }) {
       </ul>
 
       <Button
-        href={`#assinar-${plano.id}`}
+        type="button"
         variant={destaque ? "primary" : "secondary"}
         size="lg"
         className="relative z-10 mt-9 w-full"
+        onClick={() => {
+          trackCheckoutClick(plano.checkout);
+          openCaktoCheckout(plano.checkout);
+        }}
       >
         {plano.cta}
       </Button>
