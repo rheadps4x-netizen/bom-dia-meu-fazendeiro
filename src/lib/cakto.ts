@@ -1,9 +1,7 @@
-const CAKTO_CHECKOUT_URL = "https://pay.cakto.com.br/32kqoqb_880174";
-
 export const CAKTO_CHECKOUTS = {
-  teste: CAKTO_CHECKOUT_URL,
-  premium: CAKTO_CHECKOUT_URL,
-  personalizado: CAKTO_CHECKOUT_URL,
+  teste: "https://pay.cakto.com.br/32kqoqb_880174",
+  premium: "https://pay.cakto.com.br/ym5qjuc",
+  personalizado: "https://pay.cakto.com.br/sj4kern",
 } as const;
 
 export type CaktoCheckoutKey = keyof typeof CAKTO_CHECKOUTS;
