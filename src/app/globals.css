@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream-50 text-ink-900 font-sans antialiased;
+    background-image: radial-gradient(
+        circle at 20% 0%,
+        rgba(199, 115, 89, 0.06) 0%,
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 80% 100%,
+        rgba(91, 138, 42, 0.05) 0%,
+        transparent 40%
+      );
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-serif tracking-tight;
+  }
+
+  ::selection {
+    background: #f1e9d8;
+    color: #2a1f18;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
