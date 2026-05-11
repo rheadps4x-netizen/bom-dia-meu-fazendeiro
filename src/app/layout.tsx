@@ -17,13 +17,14 @@ const dmSerif = DM_Serif_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Bom Dia, Meu Fazendeiro — Mensagens diárias que cuidam de você",
-  description:
-    "Receba todos os dias, no WhatsApp, uma palavra que te acolhe, te lembra do que importa e te dá força para cultivar a sua vida.",
+  title: "Projeto Alpha",
+  description: "Quiz e checkout digital do Projeto Alpha para confiança, energia e rotina masculina.",
+  icons: {
+    icon: "/images/logo-alpha.png",
+  },
   openGraph: {
-    title: "Bom Dia, Meu Fazendeiro",
-    description:
-      "Mensagens diárias de acolhimento, fé e propósito direto no seu WhatsApp.",
+    title: "Projeto Alpha",
+    description: "Quiz e checkout digital do Projeto Alpha para confiança, energia e rotina masculina.",
     type: "website",
     locale: "pt_BR",
   },
